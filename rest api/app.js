@@ -18,3 +18,11 @@ main()
 async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/whatsapp");
 }
+
+app.get("/", (req, res) => {
+  res.send("Hi");
+});
+
+app.listen(3000, () => {
+  console.log("app is running");
+});
