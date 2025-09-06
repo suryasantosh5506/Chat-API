@@ -23,6 +23,14 @@ app.get("/", (req, res) => {
   res.send("Hi");
 });
 
+app.get("/chattings", (req, res) => {
+  Whatsapp.find()
+    .then((chats) => {
+      res.render("show.ejs", { chats });
+    })
+    .catch((err) => console.log(err));
+});
+
 app.listen(3000, () => {
   console.log("app is running");
 });

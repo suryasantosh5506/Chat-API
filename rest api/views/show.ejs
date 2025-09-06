@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>All chattings</h1>
+         <table border="1">
+        <tr>
+            <th>SI.NO</th>
+            <th>FROM</th>
+            <th>TO</th>
+            <th>MESSAGE</th>
+            <th>TIME</th>
+            <th>DATE</th>
+            <th>DAY</th>
+            <th>UPDATE CHAT</th>
+            <th>DELETE CHAT</th>
+        </tr>
+        <% for(let i=0;i<chats.length;i++){ %>
+            <tr>
+                <td><%=i+1 %></td>
+                <td><%=chats[i].from%></td>
+                <td><%=chats[i].to%></td>
+                <td><%=chats[i].msg%></td>
+                <td><%=chats[i].date.toString().split(" ")[4]%></td>
+                <td><%=chats[i].date.toString().split(" ").splice(1,3).join("-")%></td>
+                <td><%=chats[i].date.toString().split(" ")[0]%></td>
+                <td>
+                    <form action="/update/<%=chats[i].id%>" method="get">
+                      <button>Update</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/delete/<%=chats[i].id%>?_method=DELETE" method="post">
+                      <button>Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <form action="#" method="get">
+        <button>ADD NEW CHAT</button>
+    </form>
+  </body>
+</html>
