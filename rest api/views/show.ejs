@@ -29,19 +29,19 @@
                 <td><%=chats[i].date.toString().split(" ").splice(1,3).join("-")%></td>
                 <td><%=chats[i].date.toString().split(" ")[0]%></td>
                 <td>
-                    <form action="/update/<%=chats[i].id%>" method="get">
+                    <form action="#" method="get">
                       <button>Update</button>
                     </form>
                 </td>
                 <td>
-                    <form action="/delete/<%=chats[i].id%>?_method=DELETE" method="post">
+                    <form action="#" method="post">
                       <button>Delete</button>
                     </form>
                 </td>
             </tr>
         <% } %>
     </table>
-    <form action="#" method="get">
+    <form action="/add" method="get">
         <button>ADD NEW CHAT</button>
     </form>
   </body>
