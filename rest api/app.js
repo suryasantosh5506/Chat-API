@@ -77,6 +77,28 @@ app.put("/edit/:id", (req, res) => {
     });
 });
 
+app.get("/delete/:id", (req, res) => {
+  let id = req.params.id;
+  Whatsapp.findById(id)
+    .then((data) => {
+      res.render("delete.ejs", { data });
+    })
+    .catch((err) => {
+      console.log("Error:", err);
+    });
+});
+
+app.delete("/delete/:id", (req, res) => {
+  let id = req.params.id;
+  Whatsapp.findByIdAndDelete(id)
+    .then((data) => {
+      res.redirect("/chattings");
+    })
+    .catch((err) => {
+      console.log("Error:", err);
+    });
+});
+
 app.listen(3000, () => {
   console.log("app is running");
 });
