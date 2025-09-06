@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/edit/<%=data.id %>?_method=PUT" method="post">
+      <label for="">From</label>
+      <input name="from" id="" value="<%=data.from %>"></input>
+      <br />
+      <label for="">To</label>
+      <input name="to" id="" value="<%=data.to %>"></input>
+      <br />
+      <label for="">MESSAGE</label>
+      <textarea name="msg" id=""><%= data.msg %></textarea>
+
+      <br />
+      <button>Submit</button>
+    </form>
+  </body>
+</html>

@@ -50,6 +50,33 @@ app.post("/add", (req, res) => {
     });
 });
 
+app.get("/edit/:id", (req, res) => {
+  let id = req.params.id;
+  Whatsapp.findById(id)
+    .then((data) => {
+      res.render("edit.ejs", { data });
+    })
+    .catch((err) => {
+      console.log("Error:", err);
+    });
+});
+
+app.put("/edit/:id", (req, res) => {
+  let id = req.params.id;
+  let from = req.body.from;
+  let to = req.body.to;
+  let msg = req.body.msg;
+  Whatsapp.findByIdAndUpdate(id, {
+    $set: { from: from, to: to, msg: msg, date: new Date() },
+  })
+    .then((data) => {
+      res.redirect("/chattings");
+    })
+    .catch((err) => {
+      console.log("Error:", err);
+    });
+});
+
 app.listen(3000, () => {
   console.log("app is running");
 });
