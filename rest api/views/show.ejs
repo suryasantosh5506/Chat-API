@@ -29,7 +29,7 @@
                 <td><%=chats[i].date.toString().split(" ").splice(1,3).join("-")%></td>
                 <td><%=chats[i].date.toString().split(" ")[0]%></td>
                 <td>
-                    <form action="#" method="get">
+                    <form action="/edit/<%=chats[i].id %>" method="get">
                       <button>Update</button>
                     </form>
                 </td>
