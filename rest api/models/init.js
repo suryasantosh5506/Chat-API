@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const path = require("path");
 
-const Whatsapp = require("./models/chat");
+const Whatsapp = require("./chat");
 
 main()
   .then((res) => console.log("connection successful"))
